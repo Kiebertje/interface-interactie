@@ -28,11 +28,11 @@ img {
 }
 
 p {
-  font-family: 'minen',sans-serif;
+  font-family: 'minen', 'onderscherm',sans-serif;
 }
 
 h1 {
-  font-family: 'pixel_titel', sans-serif;
+  font-family: 'pixel_titel', 'onderscherm', sans-serif;
 }
 
 li {
@@ -44,12 +44,12 @@ li {
 /*********************/
 
 :root {
-  --color-headings:crimson;
+  --color-headings:rgb(206, 20, 57);
   --scherm-achtergrond:black; 
   --hover-timeline:rgb(169, 128, 135);
   --p-color:white;
   --body-color:rgb(141, 141, 141); 
-  /* ... */
+  --active-color: rgb(195, 34, 34);
 }
 
 
@@ -132,6 +132,7 @@ li {
   margin-left: 2.3vw;
 }
 
+/* hover */
 
 li:hover {
   color:var(--hover-timeline);
@@ -162,6 +163,24 @@ li:hover {
   }
 }
 
+/* focus */
+
+button {
+  all: unset;
+}
+
+button:focus {
+  color: var(--hover-timeline);  
+    transition: transform 0.3s ease-in-out;
+    animation: shake 0.3s ease;
+}
+
+/* active */
+button:active {
+  color: var(--active-color);
+}
+
+
 /* Hidden */
 
 body > article:nth-of-type(2), body > article:nth-of-type(3), body > article:nth-of-type(4), body > article:nth-of-type(5), body > article:nth-of-type(6), body > article:nth-of-type(7), body > article:nth-of-type(8), body > article:nth-of-type(9){
@@ -183,19 +202,6 @@ body figure img:nth-of-type(2) {
   width: 25vh;
   height: 25vh;
 }
-
-/* focus */
-
-button {
-  all: unset;
-}
-
-button:focus {
-  color: var(--hover-timeline);  
-    transition: transform 0.3s ease-in-out;
-    animation: shake 0.3s ease;
-}
-
 
 /* easter egg 1992 */
 
