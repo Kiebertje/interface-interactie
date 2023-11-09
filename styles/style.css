@@ -2,40 +2,54 @@
 /* CSS REMEDY */
 /**************/
 
-/* naar een idee van Jen Simmons */
-*, *::after, *::before {
-  box-sizing:border-box;  
-}
-
 body {
   margin:0;
-}
-
-button:not([disabled]) {
-  cursor:pointer;
+  background-color: var(--body-color);
+  cursor: url(/images/Stylus.png) 30 100,auto;
 }
 
 img {
   max-width:100%;
 }
 
+@font-face {
+  font-family: "pixel_titel";
+  src: url(/fonts/Daydream.ttf);
+}
 
+@font-face {
+  font-family: "onderscherm";
+  src: url(/fonts/eenfont.woff);
+}
 
+@font-face {
+  font-family: "minen";
+  src: url(/fonts/Minecraft.ttf);
+}
 
+p {
+  font-family: 'minen',sans-serif;
+}
+
+h1 {
+  font-family: 'pixel_titel', sans-serif;
+}
+
+li {
+  font-family: 'onderscherm', sans-serif;
+}
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
 
-
-body {
-  font-family: '', sans-serif;
-}
-
 :root {
-  --color-headings:crimson
+  --color-headings:crimson;
+  --scherm-achtergrond:black; 
+  --hover-timeline:rgb(169, 128, 135);
+  --p-color:white;
+  --body-color:rgb(141, 141, 141); 
   /* ... */
-
 }
 
 
@@ -47,7 +61,11 @@ h1 {
   color:var(--color-headings);
 }
 
-/* ... */
+p {
+  color:var(--p-color);
+}
+
+/* Body & articles */
 
 body {
   display: flex;
@@ -56,17 +74,28 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  background-color: white;
 }
 
-article {
+article{
   display: flex;
-  width: 840px;
-  height: 300px;
-  background-color: #000;
-  border: 2px solid #000;
-  border-radius: 5px;
+  width: 52.5em;
+  height: 18.75em;
+  background-color: var(--scherm-achtergrond);
+  outline: 0.5em solid var(--p-color);
   margin-top: 2vh;
+  border-radius: 5px;
+}
+
+article section:nth-of-type(1) {
+  background-color: var(--scherm-achtergrond);
+  margin-top: 3vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
+
+article:nth-last-of-type(1) img:nth-last-of-type(2) {
+  position: absolute;
+  left: 75vh;
 }
 
 article>h1 {
@@ -77,22 +106,23 @@ article>h1 {
 article>img {
   margin-left: 5vh;
   margin-top: 5vh;
-  width: 200px;
-  height: 200px;
+  width: 12.5em;
+  height: 12.5em;
 }
 
-article article {
-  width: 840px;
-  height: 240px;
-  background-color: #000;
-  border: 2px solid #000;
+body article:nth-of-type(10) {
+  width: 52.5em;
+  height: 15em;
+  background-color: var(--scherm-achtergrond);
   border-radius: 5px;
 }
 
+/* Tijdlijn */
+
 ol {
-  color: white;
+  color: var(--p-color);
   margin-left: 4.5vh;
-  margin-top: 20vh;
+  margin-top: 13.5vh;
   list-style: none;
   display: flex;
 }
@@ -104,8 +134,8 @@ li {
 
 
 li:hover {
-  color:rgb(169, 128, 135);
-  cursor: pointer;
+  color:var(--hover-timeline);
+  cursor: url(/images/Stylus_press.png) 30 100,auto;
 }
 
 li {
@@ -132,5 +162,46 @@ li:hover {
   }
 }
 
-/* test */
+/* Hidden */
 
+body > article:nth-of-type(2), body > article:nth-of-type(3), body > article:nth-of-type(4), body > article:nth-of-type(5), body > article:nth-of-type(6), body > article:nth-of-type(7), body > article:nth-of-type(8), body > article:nth-of-type(9){
+  display: none;
+}
+
+/* dpad & facebuttons */
+
+body figure img:nth-of-type(1) {
+  position: absolute;
+  left: 5em;
+  width: 20vh;
+  height: 20vh;
+}
+
+body figure img:nth-of-type(2) {
+  position: absolute;
+  right: 5em;
+  width: 25vh;
+  height: 25vh;
+}
+
+/* focus */
+
+button {
+  all: unset;
+}
+
+button:focus {
+  color: var(--hover-timeline);  
+    transition: transform 0.3s ease-in-out;
+    animation: shake 0.3s ease;
+}
+
+
+/* easter egg 1992 */
+
+article > ol > li > img {
+  display: none;
+  position: absolute;
+  left: 32vw;
+  top: 15vh;
+}
